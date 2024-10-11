@@ -1,6 +1,6 @@
 # recipie_app
 
-A new Flutter project.
+A Recipie App. i build that app in flutter and use the Hive database to store the data of recipies.
 
 ## Getting Started
 
