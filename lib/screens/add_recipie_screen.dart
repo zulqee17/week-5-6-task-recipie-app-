@@ -49,6 +49,22 @@ class _AddRecipieScreenState extends State<AddRecipieScreen> {
     return null;
   }
 
+  clearField(){
+    recipieNameController.clear();
+    ingredientsController.clear();
+    recipieController.clear();
+    _imageData=null;
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    recipieNameController.dispose();
+    ingredientsController.dispose();
+    recipieController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -174,7 +190,6 @@ class _AddRecipieScreenState extends State<AddRecipieScreen> {
                       }
                     });
 
-
                     if(_formKey.currentState!.validate() && _imageData!=null){
                       RecipeDatabase rD=RecipeDatabase()
                         ..key=key
@@ -189,6 +204,8 @@ class _AddRecipieScreenState extends State<AddRecipieScreen> {
                         Utils.toastMessage(e.toString(), Colors.red);
                       });
                     }
+
+                    clearField();
                   },
                   child: Container(
                     height: 50,
